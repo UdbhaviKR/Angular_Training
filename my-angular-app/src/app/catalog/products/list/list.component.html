@@ -1,0 +1,20 @@
+<!--<div>
+  <ul *ngFor="let p of products">  
+    <li>
+    <app-details [product] ="p" ></app-details>
+    </li>
+  </ul>
+</div>-->
+
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let p of products">
+      <div class="card shadow-sm h-100">
+        <div class="card-body">
+          <app-details [product]="p"></app-details>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
