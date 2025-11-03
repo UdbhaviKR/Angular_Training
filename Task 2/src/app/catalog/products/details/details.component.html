@@ -1,0 +1,8 @@
+<div *ngIf="product">
+<p> {{product.title}}</p>
+<p>{{product.description}}</p>
+<img src="{{product.imageurl}}" width="200" height="200"/>
+<p>Likes: {{product.likes}}</p>
+<app-counter [count]="product.likes"  (update)="onUpdate($event)">
+</app-counter>
+</div>

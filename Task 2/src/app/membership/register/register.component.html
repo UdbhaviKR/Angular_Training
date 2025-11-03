@@ -1,0 +1,69 @@
+<form>
+            <table>
+            <tr>
+                <td><label>FirstName:</label></td>
+                <input type="text" name="firstName" required minlength="3" maxlength="8" >
+              
+            </tr>
+                
+            <tr>
+                <td><label>LastName:</label></td>
+                <td><input type="text" name="lastName" ></td>
+            </tr>
+            <tr><td>
+                  <label>Email:</label></td>
+                  <input type="email" name="email"  required pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$">
+
+            </tr>
+            <tr>
+                <td> <label>BirthDate:</label></td>
+                <td><input type="date" name="birthDate"  required ></td>
+            </tr>
+            <tr>
+                <td> <label>Age:</label></td>
+                <td><input type="number" name="age"  required ></td>
+            </tr>
+            <tr>
+                <td><label>PhoneNo:</label></td>
+                <td><input type="text" name="phoneNo"  required ></td>
+            </tr> 
+             <tr>
+                <td><label>Location:</label></td>
+                <select id="location" required  name="location"> 
+                   <option>Pune</option>
+                   <option>Mumbai</option>
+                   <option>Bangalore</option>
+                </select>
+               
+            </tr> 
+            <tr>
+                <td><label>Membership:</label></td>
+                <div>
+                    <label><input type="radio" name="memberShip"  required   > gold </label>
+                </div>
+                <div>
+                    <label><input type="radio" name="memberShip"  required   > silver </label>
+                </div>
+                <div>
+                    <label><input type="radio" name="memberShip"  required  > platinum </label>
+                </div>
+            </tr>
+            <tr>
+                <td><label>Status</label></td>
+                <input type="checkbox" name="IsRegistered" value='false'>IsRegistered<br>
+            </tr>
+            <tr>
+                <td><label>Source Of Information:</label></td>
+                <select multiple name="social">
+                    <option>Facebook</option>
+                    <option>Instagram</option>
+                    <option>Twitter</option>
+                    <option>LinkedIn</option>
+                </select>
+            </tr>    
+            <tr>
+              <td><button type="submit"> Submit</button> 
+              </td>
+            </tr>
+      </table>
+    </form>
