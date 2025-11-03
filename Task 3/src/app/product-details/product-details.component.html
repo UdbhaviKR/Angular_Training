@@ -1,0 +1,15 @@
+
+
+<div *ngIf="product">
+<h3>Todays Best Flower</h3>
+<p>Title: {{product.title}}</p>
+<p>Description:{{product.description}}</p>
+<img src="{{product.imageurl}}" width="200" height="200"/>
+<p>Likes: {{product.likes}}</p>
+
+<app-counter [count]="product.likes" 
+             (update)="onUpdate($event)">
+</app-counter>
+
+</div>
+
