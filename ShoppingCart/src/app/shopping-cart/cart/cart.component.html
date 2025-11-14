@@ -1,0 +1,89 @@
+<div class="container-fluid">
+  <div class="row justify-content-start">
+    <!-- Left: Cart (primary) -->
+    <div class="col-12 col-lg-8">
+      <div class="p-3">
+        <h3>Shopping Cart</h3>
+
+        <table class="table table-striped" *ngIf="cartItems.length; else empty">
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Product</th>
+              <th>Price</th>
+              <th style="width:140px">Quantity</th>
+              <th>Subtotal</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of cartItems">
+              <td><img [src]="item.image" alt="{{item.name}}" class="cart-img"></td>
+              <td class="align-middle">{{ item.name }}</td>
+              <td class="align-middle">{{ item.price | currency:'INR':'symbol':'1.2-2':'en-IN' }}</td>
+              <td class="align-middle">
+                <input type="number" class="form-control" min="1" [(ngModel)]="item.quantity"
+                       (ngModelChange)="updateQuantity(item.productId, $event)">
+              </td>
+              <td class="align-middle">{{ (item.price * item.quantity) | currency:'INR':'symbol':'1.2-2':'en-IN' }}</td>
+              <td class="align-middle">
+                <button class="btn btn-sm btn-danger" (click)="removeFromCart(item.productId)">Remove</button>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="4" class="text-end"><strong>Total:</strong></td>
+              <td><strong>{{ getTotalPrice() | currency:'INR':'symbol':'1.2-2':'en-IN' }}</strong></td>
+              <td></td>
+            </tr>
+          </tfoot>
+        </table>
+
+        <ng-template #empty>
+          <div class="alert alert-info">Your cart is empty.</div>
+        </ng-template>
+      </div>
+    </div>
+
+    <!-- Right: Actions / Add Item (sidebar) -->
+    <div class="col-12 col-lg-4">
+      <div class="p-3">
+        <div class="card mb-3 sidebar-card">
+          <div class="card-body">
+            <h5 class="card-title">Cart Actions</h5>
+            <p class="card-text">Items: <strong>{{ getTotalItems() }}</strong></p>
+            <button class="btn btn-secondary w-100 mb-2" (click)="clearCart()">Clear Cart</button>
+            <!-- <button class="btn btn-outline-primary w-100" (click)="load()">Refresh</button> -->
+          </div>
+        </div>
+
+        <div class="card sidebar-card">
+          <div class="card-body">
+            <h5 class="card-title">Add Item</h5>
+            <div class="row g-2">
+              <div class="col-4">
+                <input class="form-control" type="number" placeholder="ID" [(ngModel)]="newItem.productId">
+              </div>
+              <div class="col-8">
+                <input class="form-control" placeholder="Name" [(ngModel)]="newItem.name">
+              </div>
+              <div class="col-6">
+                <input class="form-control" type="number" placeholder="Price" [(ngModel)]="newItem.price">
+              </div>
+              <div class="col-6">
+                <input class="form-control" type="number" min="1" [(ngModel)]="newItem.quantity">
+              </div>
+              <div class="col-12">
+                <input class="form-control" placeholder="Image URL" [(ngModel)]="newItem.image">
+              </div>
+            </div>
+            <div class="mt-3">
+              <button class="btn btn-primary w-100" (click)="addToCart()">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> 
+  </div>
+</div>

@@ -1,0 +1,36 @@
+/* reduce table row height */
+.table.table-striped th,
+.table.table-striped td {
+  padding: 0.4rem 0.6rem;   /* smaller vertical padding */
+  vertical-align: middle;
+  line-height: 1.1;         /* tighter line height */
+  font-size: 0.95rem;
+}
+
+/* smaller images */
+.cart-img {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* make the quantity input compact */
+.table .form-control {
+  padding: 0.25rem 0.4rem;
+  height: calc(1.6rem + 2px);
+  font-size: 0.9rem;
+}
+
+/* optional: constrain table area and enable vertical scroll */
+.cart-table-wrap {
+  max-height: 300px; /* adjust height as needed */
+  overflow-y: auto;
+  /* keep layout stable */
+  -webkit-overflow-scrolling: touch;
+}
+
+/* keep sticky sidebar on large screens */
+@media (min-width: 992px) {
+  .sidebar-card { position: sticky; top: 1.5rem; }
+}
